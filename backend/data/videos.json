@@ -1,0 +1,326 @@
+[
+  {
+    "id": "1",
+    "title": "Urban Summer Collection",
+    "description": "Breezy linen shirts and relaxed fit trousers designed for effortless summer style.",
+    "videoUrl": "https://vjs.zencdn.net/v/oceans.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop&q=80",
+    "likes": 1420,
+    "shares": 312
+  },
+  {
+    "id": "2",
+    "title": "Minimalist Streetwear Drop",
+    "description": "Heavyweight cotton hoodies with subtle embroidered typography.",
+    "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=600&auto=format&fit=crop&q=80",
+    "likes": 980,
+    "shares": 145
+  },
+  {
+    "id": "3",
+    "title": "Vintage Denim Aesthetic",
+    "description": "Hand-washed Japanese selvedge denim jacket styled with retro sneakers.",
+    "videoUrl": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
+    "likes": 2150,
+    "shares": 520
+  },
+  {
+    "id": "4",
+    "title": "Sunset Beach Vibing",
+    "description": "Golden hour coastal aesthetics featuring breathable vacation wear.",
+    "videoUrl": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop&q=80",
+    "likes": 3410,
+    "shares": 890
+  },
+  {
+    "id": "5",
+    "title": "Monochrome Athleisure",
+    "description": "Performance activewear styled for urban city commuting.",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1483721074892-4a85807d2d2d?w=600&auto=format&fit=crop&q=80",
+    "likes": 870,
+    "shares": 190
+  },
+  {
+    "id": "6",
+    "title": "Cyberpunk Neon Nights",
+    "description": "Reflective technical outerwear illuminated under Tokyo city lights.",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&auto=format&fit=crop&q=80",
+    "likes": 4200,
+    "shares": 1150
+  },
+  {
+    "id": "7",
+    "title": "Cozy Autumn Knitwear",
+    "description": "Oversized chunky cardigans in warm terracotta tones.",
+    "videoUrl": "https://vjs.zencdn.net/v/oceans.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=600&auto=format&fit=crop&q=80",
+    "likes": 1650,
+    "shares": 240
+  },
+  {
+    "id": "8",
+    "title": "Tears of Steel Preview",
+    "description": "High-octane visual storytelling showcase with futuristic sci-fi props.",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&auto=format&fit=crop&q=80",
+    "likes": 5600,
+    "shares": 1420
+  },
+  {
+    "id": "9",
+    "title": "We Are Going On Bullrun",
+    "description": "Automotive luxury showcase featuring sleek body curves and high engine revs.",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&auto=format&fit=crop&q=80",
+    "likes": 3100,
+    "shares": 640
+  },
+  {
+    "id": "10",
+    "title": "What Car Can You Get",
+    "description": "Top tier luxury coupe overview and interior upholstery details.",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=600&auto=format&fit=crop&q=80",
+    "likes": 2890,
+    "shares": 430
+  },
+  {
+    "id": "11",
+    "title": "Chromium Metallic Aesthetics",
+    "description": "Futuristic metallic accessories paired with dark techwear fashion.",
+    "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&auto=format&fit=crop&q=80",
+    "likes": 1780,
+    "shares": 380
+  },
+  {
+    "id": "12",
+    "title": "Nordic Winter Essentials",
+    "description": "Thermal insulated parkas engineered for sub-zero mountain exploration.",
+    "videoUrl": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?w=600&auto=format&fit=crop&q=80",
+    "likes": 2300,
+    "shares": 490
+  },
+  {
+    "id": "13",
+    "title": "Artisanal Leather Craft",
+    "description": "Handcrafted leather wallets, boots, and duffle bags built for longevity.",
+    "videoUrl": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&auto=format&fit=crop&q=80",
+    "likes": 1120,
+    "shares": 195
+  },
+  {
+    "id": "14",
+    "title": "Pastel Dreamwear",
+    "description": "Soft lavender and mint green knit hoodies with casual drop shoulders.",
+    "videoUrl": "https://vjs.zencdn.net/v/oceans.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?w=600&auto=format&fit=crop&q=80",
+    "likes": 1940,
+    "shares": 310
+  },
+  {
+    "id": "15",
+    "title": "Tokyo Skateboard Culture",
+    "description": "Streetwear fit checks captured in Shibuya skate parks at midnight.",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1564859228273-274232fdb516?w=600&auto=format&fit=crop&q=80",
+    "likes": 3850,
+    "shares": 920
+  },
+  {
+    "id": "16",
+    "title": "Earthy Tones Lookbook",
+    "description": "Olive greens, sandstone beige, and muted khaki layers for outdoor walks.",
+    "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1445205170230-053b83016050?w=600&auto=format&fit=crop&q=80",
+    "likes": 1470,
+    "shares": 260
+  },
+  {
+    "id": "17",
+    "title": "Minimalist Sneaker Showcase",
+    "description": "Crisp white leather low-tops styled with monochrome socks.",
+    "videoUrl": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=80",
+    "likes": 4890,
+    "shares": 1240
+  },
+  {
+    "id": "18",
+    "title": "High Fashion Runway Walk",
+    "description": "Avant-garde silhouettes showcased during Paris Fashion Week.",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&auto=format&fit=crop&q=80",
+    "likes": 6120,
+    "shares": 1820
+  },
+  {
+    "id": "19",
+    "title": "Cozy Lounge & Sleepwear",
+    "description": "Ultra-soft bamboo fabric pajamas and plush home robes.",
+    "videoUrl": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&auto=format&fit=crop&q=80",
+    "likes": 1340,
+    "shares": 210
+  },
+  {
+    "id": "20",
+    "title": "Desert Dune Safari Wear",
+    "description": "Lightweight breathable linen cloaks and UV protective sunglasses.",
+    "videoUrl": "https://vjs.zencdn.net/v/oceans.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=600&auto=format&fit=crop&q=80",
+    "likes": 2760,
+    "shares": 540
+  },
+  {
+    "id": "21",
+    "title": "Retro 90s Windbreakers",
+    "description": "Nostalgic color-blocked lightweight jackets for everyday wear.",
+    "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=600&auto=format&fit=crop&q=80",
+    "likes": 3210,
+    "shares": 710
+  },
+  {
+    "id": "22",
+    "title": "Tailored Italian Suits",
+    "description": "Precision fitted wool suits designed for formal evening gala attire.",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&auto=format&fit=crop&q=80",
+    "likes": 4500,
+    "shares": 980
+  },
+  {
+    "id": "23",
+    "title": "Sustainable Organic Cotton",
+    "description": "Zero-waste basic tees manufactured using 100% organic cotton fibers.",
+    "videoUrl": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop&q=80",
+    "likes": 1820,
+    "shares": 340
+  },
+  {
+    "id": "24",
+    "title": "Gold & Silver Jewelry Capsule",
+    "description": "Hand-carved signet rings and layered Cuban link chains.",
+    "videoUrl": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&auto=format&fit=crop&q=80",
+    "likes": 5120,
+    "shares": 1390
+  },
+  {
+    "id": "25",
+    "title": "Rainproof Tech Trench Coats",
+    "description": "Waterproof breathable outerwear engineered with taped seams.",
+    "videoUrl": "https://vjs.zencdn.net/v/oceans.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1544441893-675973e31985?w=600&auto=format&fit=crop&q=80",
+    "likes": 2190,
+    "shares": 410
+  },
+  {
+    "id": "26",
+    "title": "Coachella Boho Festival Vibe",
+    "description": "Fringed suede jackets and hand-dyed bohemian dresses.",
+    "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&auto=format&fit=crop&q=80",
+    "likes": 3940,
+    "shares": 850
+  },
+  {
+    "id": "27",
+    "title": "Modern Utility Cargo Pants",
+    "description": "Multi-pocket tactical trousers with adjustable ankle cuffs.",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600&auto=format&fit=crop&q=80",
+    "likes": 2830,
+    "shares": 620
+  },
+  {
+    "id": "28",
+    "title": "Luxury Timepieces Reel",
+    "description": "Automatic chronograph watch movements and sapphire crystal casing.",
+    "videoUrl": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=80",
+    "likes": 7400,
+    "shares": 2100
+  },
+  {
+    "id": "29",
+    "title": "Floral Summer Sundresses",
+    "description": "Vibrant floral prints on flowing chiffon fabrics.",
+    "videoUrl": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&auto=format&fit=crop&q=80",
+    "likes": 1690,
+    "shares": 290
+  },
+  {
+    "id": "30",
+    "title": "High-Top Basketball Kicks",
+    "description": "Retro basketball shoes featuring padded ankle support and gum soles.",
+    "videoUrl": "https://vjs.zencdn.net/v/oceans.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1552346154-21d32810aba3?w=600&auto=format&fit=crop&q=80",
+    "likes": 4120,
+    "shares": 930
+  },
+  {
+    "id": "31",
+    "title": "Silk Evening Gowns",
+    "description": "Floor-length pure silk slip dresses in deep emerald green.",
+    "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=600&auto=format&fit=crop&q=80",
+    "likes": 3540,
+    "shares": 740
+  },
+  {
+    "id": "32",
+    "title": "Oversized Flannel Overshirts",
+    "description": "Heavyweight plaid flannel shirts built for layering.",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80",
+    "likes": 2040,
+    "shares": 360
+  },
+  {
+    "id": "33",
+    "title": "Monochrome Eyewear Drop",
+    "description": "Handmade acetate frame sunglasses in matte black and tortoiseshell.",
+    "videoUrl": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&auto=format&fit=crop&q=80",
+    "likes": 2980,
+    "shares": 580
+  },
+  {
+    "id": "34",
+    "title": "Active Yoga & Wellness Fit",
+    "description": "Seamless high-waisted leggings and moisture-wicking sports bras.",
+    "videoUrl": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&auto=format&fit=crop&q=80",
+    "likes": 2650,
+    "shares": 490
+  },
+  {
+    "id": "35",
+    "title": "Winter Wool Cashmere Coats",
+    "description": "Double-breasted cashmere trench coats tailored for crisp winter mornings.",
+    "videoUrl": "https://vjs.zencdn.net/v/oceans.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&auto=format&fit=crop&q=80",
+    "likes": 3890,
+    "shares": 810
+  },
+  {
+    "id": "36",
+    "title": "Streetwear Accessory Edit",
+    "description": "Bucket hats, crossbody sling bags, and enamel pin sets.",
+    "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=600&auto=format&fit=crop&q=80",
+    "likes": 2410,
+    "shares": 430
+  }
+]
