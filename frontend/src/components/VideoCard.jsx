@@ -11,11 +11,10 @@ export const VideoCard = memo(({
   isLiked = false,
 }) => {
   const [containerRef, isIntersecting] = useIntersectionObserver({
-    threshold: 0.15,
-    rootMargin: '100px 0px 100px 0px',
+    threshold: 0.25,
+    rootMargin: '50px 0px 50px 0px',
   });
 
-  const [isHovered, setIsHovered] = useState(false);
   const [justLiked, setJustLiked] = useState(false);
 
   const handleLikeClick = (e) => {
@@ -33,8 +32,6 @@ export const VideoCard = memo(({
   return (
     <div
       ref={containerRef}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       onClick={() => onOpenModal(video)}
       className="group relative flex-shrink-0 w-[270px] sm:w-[290px] md:w-[310px] aspect-[9/16] rounded-3xl overflow-hidden bg-slate-900 transition-all duration-300 cursor-pointer select-none border border-slate-200 shadow-xl hover:shadow-2xl hover:shadow-rose-500/20 hover:border-rose-500 flex flex-col justify-between"
     >
@@ -45,7 +42,7 @@ export const VideoCard = memo(({
           poster={video.thumbnail}
           title={video.title}
           isActive={isIntersecting}
-          shouldPlay={isIntersecting && isHovered}
+          shouldPlay={isIntersecting}
           isMuted={true}
           className="w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out"
         />
