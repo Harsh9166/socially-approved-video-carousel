@@ -1,11 +1,23 @@
 import axios from 'axios';
 
 // Get base URL from env or fallback to localhost:5000/api
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+let BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
+// Trim trailing slash if present
+if (BASE_URL.endsWith('/')) {
+  BASE_URL = BASE_URL.slice(0, -1);
+}
+
+// Ensure /api path is present if pointing to live domain without /api
+if (!BASE_URL.includes('/api') && !BASE_URL.includes('localhost')) {
+  BASE_URL = `${BASE_URL}/api`;
+}
+
+console.log('🔗 Video API Base URL:', BASE_URL);
 
 const api = axios.create({
   baseURL: BASE_URL,
-  timeout: 60000, // 60 seconds timeout to accommodate Render free tier cold-start wakeups
+  timeout: 60000, // 60s timeout for cloud container cold starts
   headers: {
     'Content-Type': 'application/json',
   },
@@ -29,17 +41,16 @@ export const fetchVideos = async (retries = 2) => {
     }
     return [];
   } catch (error) {
-    // Retry automatically if Render backend was waking up from cold sleep
     if (retries > 0) {
       console.warn(`API call failed/timed out. Retrying (${retries} attempts left)...`);
       await new Promise(res => setTimeout(res, 2000));
       return fetchVideos(retries - 1);
     }
 
-    // Fallback attempt to root domain if /api is omitted
+    // Direct fetch fallback without axios instance if custom proxy issue
     try {
-      const fallbackUrl = BASE_URL.replace('/api', '');
-      const response = await axios.get(`${fallbackUrl}/videos`, { timeout: 30000 });
+      const directUrl = `${BASE_URL}/videos`;
+      const response = await axios.get(directUrl, { timeout: 30000 });
       return response.data.videos || [];
     } catch (fallbackError) {
       console.error('Failed to fetch videos from API after retries:', error);
