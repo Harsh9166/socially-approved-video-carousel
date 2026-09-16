@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Heart, Send, ShoppingBag, Volume2, VolumeX, ExternalLink } from 'lucide-react';
 import VideoPlayer from './VideoPlayer';
-import VideoControls from './VideoControls';
 
 export const VideoModal = ({
   video,
@@ -64,31 +63,24 @@ export const VideoModal = ({
 
   if (!isOpen || !video) return null;
 
+  const currentLikes = video.likes + (isLiked ? 1 : 0);
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-md animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-md animate-fade-in">
       {/* Background Backdrop Click to Close */}
       <div className="absolute inset-0" onClick={onClose} />
 
-      {/* Top Header Controls (High Contrast Top-Left Badge & Top-Right Close) */}
-      <div className="absolute top-6 left-6 right-6 flex items-center justify-between z-40 pointer-events-none">
-        {/* Top-Left Now Playing Badge - Solid High Contrast White Badge */}
-        <div className="pointer-events-auto bg-white text-slate-900 px-5 py-2.5 rounded-full text-xs font-black flex items-center gap-2.5 border-2 border-white shadow-2xl">
-          <span className="w-2.5 h-2.5 rounded-full bg-rose-600 animate-pulse" />
-          <span className="tracking-wide">Now Playing: {currentIndex + 1} of {videos.length}</span>
-        </div>
+      {/* Top-Right Close Button */}
+      <button
+        onClick={onClose}
+        aria-label="Close modal"
+        className="absolute top-5 right-5 sm:top-8 sm:right-8 z-50 p-2.5 rounded-full bg-black/40 hover:bg-black/70 text-white transition-all border border-white/20 focus:outline-none"
+      >
+        <X className="w-6 h-6" />
+      </button>
 
-        {/* Top-Right Close Button - High Contrast Solid White */}
-        <button
-          onClick={onClose}
-          aria-label="Close modal"
-          className="pointer-events-auto p-3 rounded-full bg-white hover:bg-rose-600 text-slate-900 hover:text-white active:scale-95 transition-all border-2 border-white shadow-2xl focus:outline-none focus:ring-2 focus:ring-rose-500"
-        >
-          <X className="w-6 h-6 stroke-[2.5]" />
-        </button>
-      </div>
-
-      {/* Main Video Container Frame */}
-      <div className="relative w-full max-w-lg aspect-[9/16] max-h-[88vh] rounded-3xl overflow-hidden bg-black border-2 border-white/20 shadow-2xl z-30 flex items-center justify-center">
+      {/* Main Video Container Frame (driptrip.in style) */}
+      <div className="relative w-full max-w-[360px] sm:max-w-[400px] aspect-[9/16] max-h-[85vh] rounded-3xl overflow-hidden bg-black shadow-2xl z-30 flex items-center justify-center border border-white/10">
         <VideoPlayer
           videoUrl={video.videoUrl}
           poster={video.thumbnail}
@@ -99,52 +91,107 @@ export const VideoModal = ({
           onTimeUpdate={(t) => setCurrentTime(t)}
           onDurationChange={(d) => setDuration(d)}
           onClick={() => setIsPlaying(!isPlaying)}
-          className="w-full h-full"
+          className="w-full h-full object-cover"
         />
 
-        {/* Floating Custom Controls Overlay */}
-        <div className="absolute bottom-4 left-4 right-4 z-40">
-          <div className="mb-3 px-2">
-            <h3 className="text-lg font-black text-white tracking-tight drop-shadow-md">{video.title}</h3>
-            <p className="text-xs text-slate-200 line-clamp-2 mt-0.5 font-medium drop-shadow-sm">{video.description}</p>
-          </div>
+        {/* Mute/Unmute Floating Button (Top Right Inside Video) */}
+        <button
+          onClick={() => setIsMuted(!isMuted)}
+          className="absolute top-4 right-4 z-40 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-all backdrop-blur-sm"
+        >
+          {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+        </button>
 
-          <VideoControls
-            isPlaying={isPlaying}
-            isMuted={isMuted}
-            currentTime={currentTime}
-            duration={duration}
-            likes={video.likes}
-            shares={video.shares}
-            isLiked={isLiked}
-            onTogglePlay={() => setIsPlaying(!isPlaying)}
-            onToggleMute={() => setIsMuted(!isMuted)}
-            onSeek={(newTime) => setCurrentTime(newTime)}
-            onLike={() => onLike(video.id)}
-            onShare={() => onShare(video.id)}
-          />
+        {/* Right Floating Actions Column (Like, Share, Cart) */}
+        <div className="absolute right-4 bottom-28 z-40 flex flex-col items-center gap-5">
+          {/* Like Button */}
+          <button
+            onClick={() => onLike && onLike(video.id)}
+            className="flex flex-col items-center gap-1 group text-white focus:outline-none"
+          >
+            <div className="p-2.5 rounded-full bg-black/40 group-hover:bg-black/60 backdrop-blur-sm transition-all border border-white/10">
+              <Heart
+                className={`w-5 h-5 transition-transform group-active:scale-125 ${
+                  isLiked ? 'fill-rose-500 text-rose-500' : 'text-white'
+                }`}
+              />
+            </div>
+            <span className="text-[11px] font-bold drop-shadow-md text-white">{currentLikes}</span>
+          </button>
+
+          {/* Share Button */}
+          <button
+            onClick={() => onShare && onShare(video.id)}
+            className="flex flex-col items-center gap-1 group text-white focus:outline-none"
+          >
+            <div className="p-2.5 rounded-full bg-black/40 group-hover:bg-black/60 backdrop-blur-sm transition-all border border-white/10">
+              <Send className="w-5 h-5 text-white transform -rotate-45 ml-0.5" />
+            </div>
+            <span className="text-[11px] font-bold drop-shadow-md text-white">{video.shares}</span>
+          </button>
+
+          {/* Shopping Bag Button */}
+          <button
+            className="flex flex-col items-center gap-1 group text-white focus:outline-none"
+          >
+            <div className="p-2.5 rounded-full bg-black/40 group-hover:bg-black/60 backdrop-blur-sm transition-all border border-white/10">
+              <ShoppingBag className="w-5 h-5 text-white" />
+            </div>
+          </button>
+        </div>
+
+        {/* Bottom Floating Product Card (driptrip.in overlay style) */}
+        <div className="absolute bottom-3 left-3 right-3 z-40">
+          <div className="bg-white/95 backdrop-blur-md rounded-2xl p-3 border border-white/40 shadow-2xl text-slate-900">
+            {/* Top row: Thumbnail, Title, Price, View More */}
+            <div className="flex items-center gap-3 mb-2.5">
+              <img
+                src={video.thumbnail}
+                alt={video.title}
+                className="w-12 h-12 rounded-xl object-cover border border-slate-200 shadow-sm flex-shrink-0"
+              />
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between gap-1">
+                  <h4 className="text-xs font-black text-slate-900 truncate tracking-tight">{video.title}</h4>
+                  <button className="px-2.5 py-1 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white text-[10px] font-bold tracking-wide flex-shrink-0 flex items-center gap-1 transition-all">
+                    View More <ExternalLink className="w-2.5 h-2.5" />
+                  </button>
+                </div>
+                <div className="flex items-center gap-2 mt-0.5">
+                  <span className="text-xs font-extrabold text-slate-900">Rs. 2,199</span>
+                  <span className="text-[10px] font-semibold text-slate-400 line-through">Rs. 3,900</span>
+                  <span className="text-[9px] font-black text-rose-600 bg-rose-50 px-1.5 py-0.5 rounded border border-rose-100">44% OFF</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Add to Cart Action */}
+            <button className="w-full py-2 rounded-xl bg-slate-900 hover:bg-black active:scale-[0.99] text-white text-xs font-bold transition-all shadow-md">
+              Add to Cart
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Previous Video Navigation Button - Solid White High Contrast */}
+      {/* Previous Video Navigation Button */}
       {hasPrev && (
         <button
           onClick={handlePrev}
-          aria-label="Previous video in modal"
-          className="absolute left-4 sm:left-12 top-1/2 -translate-y-1/2 z-40 p-4 sm:p-5 rounded-full bg-white hover:bg-rose-600 text-slate-900 hover:text-white active:scale-95 transition-all border-2 border-white shadow-2xl focus:outline-none focus:ring-2 focus:ring-rose-500"
+          aria-label="Previous video"
+          className="absolute left-4 sm:left-12 top-1/2 -translate-y-1/2 z-40 p-3 sm:p-4 rounded-full bg-white text-slate-900 hover:bg-slate-100 active:scale-95 transition-all shadow-xl focus:outline-none"
         >
-          <ChevronLeft className="w-8 h-8 stroke-[3]" />
+          <ChevronLeft className="w-6 h-6 stroke-[2.5]" />
         </button>
       )}
 
-      {/* Next Video Navigation Button - Solid White High Contrast */}
+      {/* Next Video Navigation Button */}
       {hasNext && (
         <button
           onClick={handleNext}
-          aria-label="Next video in modal"
-          className="absolute right-4 sm:right-12 top-1/2 -translate-y-1/2 z-40 p-4 sm:p-5 rounded-full bg-white hover:bg-rose-600 text-slate-900 hover:text-white active:scale-95 transition-all border-2 border-white shadow-2xl focus:outline-none focus:ring-2 focus:ring-rose-500"
+          aria-label="Next video"
+          className="absolute right-4 sm:right-12 top-1/2 -translate-y-1/2 z-40 p-3 sm:p-4 rounded-full bg-white text-slate-900 hover:bg-slate-100 active:scale-95 transition-all shadow-xl focus:outline-none"
         >
-          <ChevronRight className="w-8 h-8 stroke-[3]" />
+          <ChevronRight className="w-6 h-6 stroke-[2.5]" />
         </button>
       )}
     </div>

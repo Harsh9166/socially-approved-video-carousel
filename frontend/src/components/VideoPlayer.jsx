@@ -137,6 +137,9 @@ export const VideoPlayer = memo(({
       <img
         src={poster}
         alt={title}
+        onError={(e) => {
+          e.currentTarget.src = 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&auto=format&fit=crop&q=80';
+        }}
         className={`absolute inset-0 w-full h-full object-cover select-none transition-opacity duration-300 ${
           isPlaying ? 'opacity-0 pointer-events-none' : 'opacity-100'
         }`}

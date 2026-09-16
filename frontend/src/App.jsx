@@ -162,7 +162,7 @@ export const App = () => {
       </header>
 
       {/* Hero Banner & Video Carousel Section */}
-      <main className="flex-1 py-4 sm:py-8">
+      <main className="flex-1 py-1">
         {/* Prominent Loader State */}
         {isLoading && (
           <div className="min-h-[500px] flex flex-col items-center justify-center gap-4 text-center p-6">

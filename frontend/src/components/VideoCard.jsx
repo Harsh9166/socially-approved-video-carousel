@@ -17,7 +17,7 @@ export const VideoCard = memo(({
 
   const cardSizing =
     variant === 'wide'
-      ? 'w-[245px] sm:w-[265px] md:w-[280px] aspect-[4/5]'
+      ? 'w-[190px] sm:w-[220px] md:w-[240px] aspect-[4/5]'
       : 'w-[190px] sm:w-[210px] md:w-[225px] aspect-[9/16]';
 
   const shouldPlay = autoPlay ? isIntersecting : (isIntersecting && isHovered);
