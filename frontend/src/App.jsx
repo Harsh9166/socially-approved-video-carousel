@@ -137,32 +137,32 @@ export const App = () => {
 
       {/* Main Clean Glass Navbar */}
       <header className="sticky top-0 z-40 bg-white/95 border-b border-slate-200 backdrop-blur-xl shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2">
           {/* Brand Logo */}
-          <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-2xl bg-rose-600 flex items-center justify-center text-white shadow-md shadow-rose-500/30 border border-white transform hover:scale-105 transition-transform">
-              <Film className="w-6 h-6" />
+          <div className="flex items-center gap-2.5 min-w-0">
+            <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-rose-600 flex-shrink-0 flex items-center justify-center text-white shadow-md shadow-rose-500/30 border border-white transform hover:scale-105 transition-transform">
+              <Film className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
-            <div>
-              <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 block leading-none">
+            <div className="min-w-0">
+              <span className="text-base sm:text-2xl font-black tracking-tight text-slate-900 block leading-none truncate">
                 SOCIALLY<span className="text-rose-600">APPROVED</span>
               </span>
-              <span className="text-[10px] font-bold text-slate-500 tracking-wider uppercase">Trending Community Reels</span>
+              <span className="hidden sm:block text-[10px] font-bold text-slate-500 tracking-wider uppercase mt-1">Trending Community Reels</span>
             </div>
           </div>
 
-          {/* Stats Badges */}
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 bg-slate-100 px-4 py-2 rounded-2xl border border-slate-300 text-xs font-black text-slate-800">
-              <Layers className="w-4 h-4 text-rose-600" />
-              <span>{videos.length || 36} Curated Reels</span>
+          {/* Stats Badges - Optimized for Mobile & Desktop */}
+          <div className="flex-shrink-0">
+            <div className="flex items-center gap-1.5 sm:gap-2 bg-slate-100 px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-xl sm:rounded-2xl border border-slate-300 text-[11px] sm:text-xs font-black text-slate-800 shadow-sm">
+              <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-600 flex-shrink-0" />
+              <span>{videos.length || 36} <span className="hidden xs:inline">Reels</span></span>
             </div>
           </div>
         </div>
       </header>
 
       {/* Hero Banner & Video Carousel Section */}
-      <main className="flex-1 py-8">
+      <main className="flex-1 py-4 sm:py-8">
         {/* Prominent Loader State */}
         {isLoading && (
           <div className="min-h-[500px] flex flex-col items-center justify-center gap-4 text-center p-6">
