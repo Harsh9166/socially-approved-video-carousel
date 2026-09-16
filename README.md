@@ -10,8 +10,8 @@ Inspired by the "Socially Approved" community video lookbooks found on modern e-
 
 - **36 Video Dataset via Backend REST API**: All video metadata is served dynamically from the Express backend (`GET /videos`). Zero hardcoded video arrays on the frontend.
 - **Lazy Loading via IntersectionObserver**: Video resources only load and attach their `src` when entering the viewport, keeping active video DOM resources strictly optimized ($\le 10$ active videos at a time).
-- **Out-Of-View Auto Pause**: Videos scrolling out of view automatically pause to preserve memory, network bandwidth, and CPU/GPU resources.
-- **Outer Responsive Carousel**: Smooth horizontal scrolling with desktop ($\approx 3$ cards visible) and mobile ($1-2$ cards visible) layouts, touch swipe/drag gestures, and previous/next navigation buttons.
+- **Out-Of-View Unmounting & Auto Pause**: Videos scrolling out of view automatically unmount their active `<video>` element, reverting to lightweight image posters to preserve memory, network bandwidth, and CPU/GPU resources.
+- **Outer Responsive Carousel**: Smooth horizontal scrolling with desktop ($\approx 3$ cards visible) and mobile ($1-2$ cards visible) layouts, touch swipe/drag gestures, category tag filters, live search input, and previous/next navigation buttons.
 - **Inner Fullscreen Video Modal**:
   - Direct video modal player triggered on card click.
   - Full playback controls (Play/Pause, Mute/Unmute, interactive scrubbing Progress Bar, Like, Share).
@@ -30,7 +30,7 @@ Inspired by the "Socially Approved" community video lookbooks found on modern e-
 - **Framework**: React 18 (Vite)
 - **Styling**: Tailwind CSS, Glassmorphism UI tokens, Lucide Icons
 - **HTTP Client**: Axios
-- **Performance**: IntersectionObserver API, `React.memo`, selective video `src` binding
+- **Performance**: IntersectionObserver API, `React.memo`, selective video `src` unmounting
 
 ### Backend
 - **Runtime**: Node.js & Express.js
@@ -89,7 +89,7 @@ Returns the dataset of 36 video records.
       "id": "1",
       "title": "Urban Summer Collection",
       "description": "Breezy linen shirts and relaxed fit trousers...",
-      "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+      "videoUrl": "https://vjs.zencdn.net/v/oceans.mp4",
       "thumbnail": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop&q=80",
       "likes": 1420,
       "shares": 312
@@ -148,13 +148,14 @@ Handling 30-40 video streams on a single web page can cause severe memory leaks 
 
 To ensure high 60 FPS performance:
 
-1. **Lazy Loading via `useIntersectionObserver`**:
-   - The `<VideoPlayer />` receives an `isActive` flag driven by an IntersectionObserver with a `rootMargin` of `100px 0px 100px 0px`.
+1. **Lazy Loading & Unmounting via `useIntersectionObserver`**:
+   - The `<VideoPlayer />` receives an `isActive` flag driven by an `IntersectionObserver` (`rootMargin: '100px 0px 100px 0px'`).
    - Cards out of view render lightweight `<img>` posters instead of active `<video>` tags.
 2. **Strict Active Limit ($\le 10$ Active Videos)**:
    - Only cards inside or immediately adjacent to the viewport instantiate HTML5 `<video>` tags.
+   - When a video card scrolls off-screen, its active `<video>` element is completely unmounted from the DOM, capping total active video elements to $\approx 3-6$ at any given moment.
 3. **Automatic Video Pausing**:
-   - When a video card scrolls off-screen, its playback is immediately paused to release decoder threads.
+   - When a video card scrolls off-screen, playback is unmounted to release video decoder hardware threads.
 4. **React Component Memoization**:
    - `VideoCard` and `VideoPlayer` are wrapped in `React.memo` with stable props to prevent re-renders during scrolling.
 
@@ -163,7 +164,7 @@ To ensure high 60 FPS performance:
 ## 📂 Project Structure
 
 ```
-d:\Harsh's projects\Task\
+Task/
 ├── backend/
 │   ├── data/
 │   │   └── videos.json (36 video records)

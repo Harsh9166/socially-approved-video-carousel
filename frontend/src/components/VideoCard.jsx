@@ -10,9 +10,9 @@ export const VideoCard = memo(({
   onShare,
   isLiked = false,
 }) => {
-  const [containerRef, isIntersecting, hasBeenSeen] = useIntersectionObserver({
-    threshold: 0.2,
-    rootMargin: '120px 0px 120px 0px',
+  const [containerRef, isIntersecting] = useIntersectionObserver({
+    threshold: 0.15,
+    rootMargin: '100px 0px 100px 0px',
   });
 
   const [isHovered, setIsHovered] = useState(false);
@@ -44,7 +44,7 @@ export const VideoCard = memo(({
           videoUrl={video.videoUrl}
           poster={video.thumbnail}
           title={video.title}
-          isActive={isIntersecting || hasBeenSeen}
+          isActive={isIntersecting}
           shouldPlay={isIntersecting && isHovered}
           isMuted={true}
           className="w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out"
