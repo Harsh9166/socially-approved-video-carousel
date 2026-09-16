@@ -39,7 +39,7 @@
     "id": "5",
     "title": "Monochrome Athleisure",
     "description": "Performance activewear styled for urban city commuting.",
-    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    "videoUrl": "https://vjs.zencdn.net/v/oceans.mp4",
     "thumbnail": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&auto=format&fit=crop&q=80",
     "likes": 870,
     "shares": 190
@@ -48,7 +48,7 @@
     "id": "6",
     "title": "Cyberpunk Neon Nights",
     "description": "Reflective technical outerwear illuminated under Tokyo city lights.",
-    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+    "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
     "thumbnail": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&auto=format&fit=crop&q=80",
     "likes": 4200,
     "shares": 1150
@@ -66,7 +66,7 @@
     "id": "8",
     "title": "Tears of Steel Preview",
     "description": "High-octane visual storytelling showcase with futuristic sci-fi props.",
-    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
+    "videoUrl": "https://media.w3.org/2010/05/sintel/trailer.mp4",
     "thumbnail": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&auto=format&fit=crop&q=80",
     "likes": 5600,
     "shares": 1420
@@ -75,7 +75,7 @@
     "id": "9",
     "title": "We Are Going On Bullrun",
     "description": "Automotive luxury showcase featuring sleek body curves and high engine revs.",
-    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4",
+    "videoUrl": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
     "thumbnail": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&auto=format&fit=crop&q=80",
     "likes": 3100,
     "shares": 640
@@ -84,7 +84,7 @@
     "id": "10",
     "title": "What Car Can You Get",
     "description": "Top tier luxury coupe overview and interior upholstery details.",
-    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4",
+    "videoUrl": "https://vjs.zencdn.net/v/oceans.mp4",
     "thumbnail": "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=600&auto=format&fit=crop&q=80",
     "likes": 2890,
     "shares": 430
@@ -129,7 +129,7 @@
     "id": "15",
     "title": "Tokyo Skateboard Culture",
     "description": "Streetwear fit checks captured in Shibuya skate parks at midnight.",
-    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    "videoUrl": "https://vjs.zencdn.net/v/oceans.mp4",
     "thumbnail": "https://images.unsplash.com/photo-1564859228273-274232fdb516?w=600&auto=format&fit=crop&q=80",
     "likes": 3850,
     "shares": 920
@@ -156,7 +156,7 @@
     "id": "18",
     "title": "High Fashion Runway Walk",
     "description": "Avant-garde silhouettes showcased during Paris Fashion Week.",
-    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
+    "videoUrl": "https://media.w3.org/2010/05/sintel/trailer.mp4",
     "thumbnail": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&auto=format&fit=crop&q=80",
     "likes": 6120,
     "shares": 1820
@@ -192,7 +192,7 @@
     "id": "22",
     "title": "Tailored Italian Suits",
     "description": "Precision fitted wool suits designed for formal evening gala attire.",
-    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+    "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
     "thumbnail": "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&auto=format&fit=crop&q=80",
     "likes": 4500,
     "shares": 980
@@ -237,7 +237,7 @@
     "id": "27",
     "title": "Modern Utility Cargo Pants",
     "description": "Multi-pocket tactical trousers with adjustable ankle cuffs.",
-    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    "videoUrl": "https://vjs.zencdn.net/v/oceans.mp4",
     "thumbnail": "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600&auto=format&fit=crop&q=80",
     "likes": 2830,
     "shares": 620
@@ -282,7 +282,7 @@
     "id": "32",
     "title": "Oversized Flannel Overshirts",
     "description": "Heavyweight plaid flannel shirts built for layering.",
-    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+    "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
     "thumbnail": "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80",
     "likes": 2040,
     "shares": 360

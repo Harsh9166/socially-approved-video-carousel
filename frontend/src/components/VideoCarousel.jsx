@@ -13,6 +13,7 @@ export const VideoCarousel = ({
 }) => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   // Filtered dataset according to Category and Search Query
   const filteredVideos = useMemo(() => {
@@ -37,10 +38,10 @@ export const VideoCarousel = ({
 
   return (
     <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1">
-      {/* Categories & Search Input Bar */}
-      <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-3 mb-6">
+      {/* Categories & Search Icon/Input Bar */}
+      <div className="flex items-center justify-between gap-2 mb-6">
         {/* Category Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 flex-1 min-w-0">
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
@@ -56,22 +57,36 @@ export const VideoCarousel = ({
           ))}
         </div>
 
-        {/* Right-aligned Search Input */}
-        <div className="relative flex items-center min-w-[180px] sm:min-w-[220px] ml-auto">
-          <Search className="absolute left-3 w-3.5 h-3.5 text-slate-400 pointer-events-none" />
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search..."
-            className="w-full pl-9 pr-8 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-medium text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:bg-white transition-all shadow-inner"
-          />
-          {searchQuery && (
+        {/* Right-aligned Search Toggle / Input */}
+        <div className="flex-shrink-0 ml-1">
+          {isSearchOpen ? (
+            <div className="relative flex items-center w-40 sm:w-56 animate-fade-in">
+              <Search className="absolute left-3 w-3.5 h-3.5 text-slate-400 pointer-events-none" />
+              <input
+                type="text"
+                autoFocus
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search..."
+                className="w-full pl-9 pr-8 py-1.5 rounded-full bg-white border border-slate-300 text-xs font-medium text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900 shadow-sm"
+              />
+              <button
+                onClick={() => {
+                  setSearchQuery('');
+                  setIsSearchOpen(false);
+                }}
+                className="absolute right-2 p-1 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100"
+              >
+                <X className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          ) : (
             <button
-              onClick={() => setSearchQuery('')}
-              className="absolute right-2.5 p-0.5 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-200"
+              onClick={() => setIsSearchOpen(true)}
+              aria-label="Open search"
+              className="p-2 rounded-full bg-white hover:bg-slate-100 text-slate-700 hover:text-slate-900 border border-slate-200 shadow-sm active:scale-95 transition-all flex items-center justify-center"
             >
-              <X className="w-3 h-3" />
+              <Search className="w-4 h-4" />
             </button>
           )}
         </div>
@@ -79,26 +94,27 @@ export const VideoCarousel = ({
 
       {/* Filtered Content View */}
       {filteredVideos.length > 0 ? (
-        <div className="flex flex-col gap-10">
-          {/* Top Row: Exactly 3 Narrower Active Video Cards (Auto-playing) */}
-          <div className="flex flex-wrap justify-center items-center gap-5 sm:gap-6">
+        <div className="flex flex-col gap-8 sm:gap-12">
+          {/* Top Row: Horizontally Scrollable on Mobile, Centered Flex on Desktop */}
+          <div className="flex items-center gap-3 sm:gap-6 overflow-x-auto sm:overflow-visible no-scrollbar snap-x snap-mandatory sm:flex-wrap sm:justify-center pb-2 pt-1 px-1">
             {top3Videos.map((video) => (
-              <VideoCard
-                key={video.id}
-                video={video}
-                onOpenModal={onOpenModal}
-                onLike={onLike}
-                onShare={onShare}
-                isLiked={likedVideoIds.has(String(video.id))}
-                variant="compact"
-                autoPlay={true}
-              />
+              <div key={video.id} className="snap-center flex-shrink-0">
+                <VideoCard
+                  video={video}
+                  onOpenModal={onOpenModal}
+                  onLike={onLike}
+                  onShare={onShare}
+                  isLiked={likedVideoIds.has(String(video.id))}
+                  variant="compact"
+                  autoPlay={true}
+                />
+              </div>
             ))}
           </div>
 
-          {/* Bottom Grid: 4 Wider Cards Below (Paused by default, play on hover) */}
+          {/* Bottom Grid: 2 columns on mobile, 4 columns on desktop */}
           {bottomVideos.length > 0 && (
-            <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-7 pt-8 border-t border-slate-200">
+            <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-7 pt-6 sm:pt-10 border-t border-slate-200">
               {bottomVideos.map((video) => (
                 <VideoCard
                   key={video.id}

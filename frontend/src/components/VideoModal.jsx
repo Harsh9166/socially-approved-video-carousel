@@ -129,47 +129,12 @@ export const VideoModal = ({
             </div>
             <span className="text-[11px] font-bold drop-shadow-md text-white">{video.shares}</span>
           </button>
-
-          {/* Shopping Bag Button */}
-          <button
-            className="flex flex-col items-center gap-1 group text-white focus:outline-none"
-          >
-            <div className="p-2.5 rounded-full bg-black/40 group-hover:bg-black/60 backdrop-blur-sm transition-all border border-white/10">
-              <ShoppingBag className="w-5 h-5 text-white" />
-            </div>
-          </button>
         </div>
 
-        {/* Bottom Floating Product Card (driptrip.in overlay style) */}
-        <div className="absolute bottom-3 left-3 right-3 z-40">
-          <div className="bg-white/95 backdrop-blur-md rounded-2xl p-3 border border-white/40 shadow-2xl text-slate-900">
-            {/* Top row: Thumbnail, Title, Price, View More */}
-            <div className="flex items-center gap-3 mb-2.5">
-              <img
-                src={video.thumbnail}
-                alt={video.title}
-                className="w-12 h-12 rounded-xl object-cover border border-slate-200 shadow-sm flex-shrink-0"
-              />
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center justify-between gap-1">
-                  <h4 className="text-xs font-black text-slate-900 truncate tracking-tight">{video.title}</h4>
-                  <button className="px-2.5 py-1 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white text-[10px] font-bold tracking-wide flex-shrink-0 flex items-center gap-1 transition-all">
-                    View More <ExternalLink className="w-2.5 h-2.5" />
-                  </button>
-                </div>
-                <div className="flex items-center gap-2 mt-0.5">
-                  <span className="text-xs font-extrabold text-slate-900">Rs. 2,199</span>
-                  <span className="text-[10px] font-semibold text-slate-400 line-through">Rs. 3,900</span>
-                  <span className="text-[9px] font-black text-rose-600 bg-rose-50 px-1.5 py-0.5 rounded border border-rose-100">44% OFF</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom Add to Cart Action */}
-            <button className="w-full py-2 rounded-xl bg-slate-900 hover:bg-black active:scale-[0.99] text-white text-xs font-bold transition-all shadow-md">
-              Add to Cart
-            </button>
-          </div>
+        {/* Bottom Title & Description Overlay */}
+        <div className="absolute bottom-0 inset-x-0 p-4 z-40 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
+          <h3 className="text-sm sm:text-base font-black text-white tracking-tight drop-shadow-md">{video.title}</h3>
+          <p className="text-xs text-slate-200 line-clamp-2 mt-1 font-medium drop-shadow-sm leading-snug">{video.description}</p>
         </div>
       </div>
 
