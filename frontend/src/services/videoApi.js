@@ -1,7 +1,15 @@
 import axios from 'axios';
 
-// Get base URL from env or fallback to localhost:5000/api
-let BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+// Render live URL with unique suffix fallback
+const LIVE_RENDER_URL = 'https://socially-approved-video-carousel-oky4.onrender.com/api';
+
+// Get base URL from env or fallback to live Render URL / localhost
+let BASE_URL = import.meta.env.VITE_API_URL || LIVE_RENDER_URL;
+
+// Fix missing -oky4 suffix if old environment variable was passed
+if (BASE_URL.includes('socially-approved-video-carousel.onrender.com') && !BASE_URL.includes('-oky4')) {
+  BASE_URL = BASE_URL.replace('socially-approved-video-carousel.onrender.com', 'socially-approved-video-carousel-oky4.onrender.com');
+}
 
 // Trim trailing slash if present
 if (BASE_URL.endsWith('/')) {
@@ -47,10 +55,9 @@ export const fetchVideos = async (retries = 2) => {
       return fetchVideos(retries - 1);
     }
 
-    // Direct fetch fallback without axios instance if custom proxy issue
+    // Direct fetch fallback to LIVE_RENDER_URL
     try {
-      const directUrl = `${BASE_URL}/videos`;
-      const response = await axios.get(directUrl, { timeout: 30000 });
+      const response = await axios.get(`${LIVE_RENDER_URL}/videos`, { timeout: 30000 });
       return response.data.videos || [];
     } catch (fallbackError) {
       console.error('Failed to fetch videos from API after retries:', error);
@@ -66,7 +73,13 @@ export const likeVideo = async (videoId) => {
     return response.data;
   } catch (error) {
     console.error(`Error liking video ${videoId}:`, error);
-    throw error;
+    // Direct fallback
+    try {
+      const response = await axios.post(`${LIVE_RENDER_URL}/like`, { videoId: String(videoId), userId });
+      return response.data;
+    } catch (fbErr) {
+      throw error;
+    }
   }
 };
 
@@ -76,7 +89,13 @@ export const shareVideo = async (videoId, platform = 'copy') => {
     return response.data;
   } catch (error) {
     console.error(`Error sharing video ${videoId}:`, error);
-    throw error;
+    // Direct fallback
+    try {
+      const response = await axios.post(`${LIVE_RENDER_URL}/share`, { videoId: String(videoId), platform });
+      return response.data;
+    } catch (fbErr) {
+      throw error;
+    }
   }
 };
 
