@@ -1,8 +1,8 @@
 import React, { useRef, useState, useMemo } from 'react';
-import { ChevronLeft, ChevronRight, Search, SlidersHorizontal } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Search, SlidersHorizontal, Sparkles } from 'lucide-react';
 import VideoCard from './VideoCard';
 
-const CATEGORIES = ['All', 'Bestsellers', 'Streetwear', 'Summer', 'Luxury', 'Athleisure', 'Vintage'];
+const CATEGORIES = ['All', 'Streetwear', 'Summer', 'Luxury', 'Athleisure', 'Vintage', 'Knitwear'];
 
 export const VideoCarousel = ({
   videos = [],
@@ -22,7 +22,6 @@ export const VideoCarousel = ({
     return videos.filter((video) => {
       const matchesCategory =
         selectedCategory === 'All' ||
-        selectedCategory === 'Bestsellers' ||
         video.title.toLowerCase().includes(selectedCategory.toLowerCase()) ||
         video.description.toLowerCase().includes(selectedCategory.toLowerCase());
 
@@ -69,43 +68,44 @@ export const VideoCarousel = ({
   };
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Centered Minimal Header (driptrip.in style) */}
-      <div className="text-center mb-8">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-          Our Bestsellers
-        </h2>
-        <p className="text-sm text-slate-500 mt-2 font-medium max-w-md mx-auto">
-          Trending customer favorites & community style checks.
-        </p>
+    <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      {/* Header Title Section */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+        <div>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold uppercase tracking-wider mb-2">
+            <Sparkles className="w-3.5 h-3.5 text-rose-600 animate-spin" />
+            <span>Approved Reels</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            Socially <span className="text-rose-600">Approved</span>
+          </h2>
+        </div>
 
-        {/* Filter Controls Row */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6">
-          {/* Search Bar */}
-          <div className="relative w-full sm:w-72">
+        {/* Search Bar & Nav Arrows */}
+        <div className="flex items-center gap-3">
+          <div className="relative w-full sm:w-64">
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
-              placeholder="Search collections..."
+              placeholder="Search reels..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 rounded-full bg-white text-xs font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900 border border-slate-200 shadow-sm"
+              className="w-full pl-10 pr-4 py-2.5 rounded-full bg-white text-xs font-bold text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-rose-500 border border-slate-300 shadow-sm"
             />
           </div>
 
-          {/* Nav Buttons */}
           <div className="hidden sm:flex items-center gap-2">
             <button
               onClick={scrollLeft}
               aria-label="Previous videos"
-              className="p-2.5 rounded-full bg-white hover:bg-slate-100 active:scale-95 text-slate-800 transition-all shadow-sm border border-slate-200 focus:outline-none"
+              className="p-2.5 rounded-full bg-white hover:bg-slate-100 active:scale-95 text-slate-800 transition-all shadow-sm border border-slate-300 focus:outline-none"
             >
               <ChevronLeft className="w-4 h-4 stroke-[2.5]" />
             </button>
             <button
               onClick={scrollRight}
               aria-label="Next videos"
-              className="p-2.5 rounded-full bg-white hover:bg-slate-100 active:scale-95 text-slate-800 transition-all shadow-sm border border-slate-200 focus:outline-none"
+              className="p-2.5 rounded-full bg-white hover:bg-slate-100 active:scale-95 text-slate-800 transition-all shadow-sm border border-slate-300 focus:outline-none"
             >
               <ChevronRight className="w-4 h-4 stroke-[2.5]" />
             </button>
@@ -113,16 +113,16 @@ export const VideoCarousel = ({
         </div>
       </div>
 
-      {/* Category Tag Pills (Centered) */}
-      <div className="flex items-center justify-start sm:justify-center gap-2.5 overflow-x-auto no-scrollbar mb-8 pb-2">
+      {/* Category Tag Pills (Pill-shaped, non-squished, clear padding & contrast) */}
+      <div className="flex items-center gap-3 overflow-x-auto no-scrollbar mb-8 py-2">
         {CATEGORIES.map((cat) => (
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
-            className={`px-4.5 py-2 rounded-full text-xs font-extrabold transition-all whitespace-nowrap active:scale-95 border ${
+            className={`px-5 py-2 rounded-full text-xs sm:text-sm font-extrabold transition-all whitespace-nowrap flex-shrink-0 border shadow-sm ${
               selectedCategory === cat
-                ? 'bg-slate-900 text-white border-slate-900 shadow-md'
-                : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100 hover:text-slate-900 shadow-sm'
+                ? 'bg-slate-900 text-white border-slate-900 shadow-md scale-105'
+                : 'bg-white text-slate-700 border-slate-300 hover:bg-slate-100 hover:text-slate-900 hover:border-slate-400'
             }`}
           >
             {cat}
@@ -130,14 +130,14 @@ export const VideoCarousel = ({
         ))}
       </div>
 
-      {/* 4 Cards Grid / Horizontal Track (driptrip.in layout) */}
+      {/* 4 Cards Row Layout (driptrip.in style) */}
       {filteredVideos.length > 0 ? (
         <div
           ref={scrollContainerRef}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
-          className="flex gap-4 sm:gap-6 overflow-x-auto no-scrollbar scroll-smooth py-2 px-1 snap-x snap-mandatory justify-start lg:justify-center"
+          className="flex gap-4 sm:gap-6 overflow-x-auto no-scrollbar scroll-smooth py-2 px-1 snap-x snap-mandatory justify-start lg:justify-between"
         >
           {filteredVideos.map((video) => (
             <div key={video.id} className="snap-center">
@@ -152,12 +152,12 @@ export const VideoCarousel = ({
           ))}
         </div>
       ) : (
-        <div className="py-16 text-center bg-white rounded-3xl border border-slate-200 my-4 shadow-sm">
+        <div className="py-16 text-center bg-white rounded-3xl border border-slate-300 my-4 shadow-sm">
           <SlidersHorizontal className="w-10 h-10 text-slate-400 mx-auto mb-3" />
           <p className="text-sm font-bold text-slate-800">No reels found for "{searchQuery || selectedCategory}"</p>
           <button
             onClick={() => { setSelectedCategory('All'); setSearchQuery(''); }}
-            className="mt-3 text-xs font-black text-slate-900 hover:underline"
+            className="mt-3 text-xs font-black text-rose-600 hover:underline"
           >
             Reset Filters
           </button>
