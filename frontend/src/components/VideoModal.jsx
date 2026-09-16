@@ -65,7 +65,7 @@ export const VideoModal = ({
   if (!isOpen || !video) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/90 backdrop-blur-2xl animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-md animate-fade-in">
       {/* Background Backdrop Click to Close */}
       <div className="absolute inset-0" onClick={onClose} />
 
